@@ -23,6 +23,6 @@ venv/
 .idea/
 
 # data file
-.csv
-.xlsx
-.xls
+*.csv
+*.xlsx
+*.xls
