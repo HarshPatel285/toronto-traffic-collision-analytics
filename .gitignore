@@ -1,0 +1,28 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# virtual environment
+venv/
+.env
+
+# macOS files
+.DS_Store
+
+# Jupyter checkpoints
+.ipynb_checkpoints
+
+# test cache
+.pytest_cache/
+
+# Streamlit cache
+.streamlit/
+
+# IDE files
+.vscode/
+.idea/
+
+# data file
+.csv
+.xlsx
+.xls
