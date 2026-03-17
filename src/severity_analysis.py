@@ -30,3 +30,13 @@ def property_damage_collisions(df: pd.DataFrame) -> int:
         raise ValueError("Dataset must contain PD_COLLISIONS column")
 
     return len(df[df["PD_COLLISIONS"] == "YES"])
+
+def fatal_collision_flag(df: pd.DataFrame) -> int:
+    """
+    Count collisions flagged as fatal.
+    """
+
+    if "FTR_COLLISIONS" not in df.columns:
+        raise ValueError("Dataset must contain FTR_COLLISIONS column")
+
+    return len(df[df["FTR_COLLISIONS"] == "YES"])
