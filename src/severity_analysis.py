@@ -40,3 +40,27 @@ def fatal_collision_flag(df: pd.DataFrame) -> int:
         raise ValueError("Dataset must contain FTR_COLLISIONS column")
 
     return len(df[df["FTR_COLLISIONS"] == "YES"])
+
+def severity_distribution(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Generate severity distribution table.
+    """
+
+    fatal = fatal_collisions(df)
+    injury = injury_collisions(df)
+    property_damage = property_damage_collisions(df)
+
+    severity_df = pd.DataFrame({
+        "Severity_Type": [
+            "Fatal Collisions",
+            "Injury Collisions",
+            "Property Damage Collisions"
+        ],
+        "Collision_Count": [
+            fatal,
+            injury,
+            property_damage
+        ]
+    })
+
+    return severity_df
