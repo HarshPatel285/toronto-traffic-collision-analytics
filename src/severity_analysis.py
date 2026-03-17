@@ -19,3 +19,14 @@ def injury_collisions(df: pd.DataFrame) -> int:
         raise ValueError("Dataset must contain INJURY_COLLISIONS column")
 
     return len(df[df["INJURY_COLLISIONS"] == "YES"])
+
+
+def property_damage_collisions(df: pd.DataFrame) -> int:
+    """
+    Count property damage collisions.
+    """
+
+    if "PD_COLLISIONS" not in df.columns:
+        raise ValueError("Dataset must contain PD_COLLISIONS column")
+
+    return len(df[df["PD_COLLISIONS"] == "YES"])
