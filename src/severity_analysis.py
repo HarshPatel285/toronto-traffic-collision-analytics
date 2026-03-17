@@ -64,3 +64,15 @@ def severity_distribution(df: pd.DataFrame) -> pd.DataFrame:
     })
 
     return severity_df
+
+def most_common_severity(df: pd.DataFrame) -> str:
+    """
+    Identify most common collision severity.
+    """
+
+    severity_df = severity_distribution(df)
+
+    return severity_df.loc[
+        severity_df["Collision_Count"].idxmax(),
+        "Severity_Type"
+    ]
