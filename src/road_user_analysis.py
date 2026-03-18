@@ -18,3 +18,13 @@ def motorcycle_collisions(df: pd.DataFrame) -> int:
         raise ValueError("Dataset must contain MOTORCYCLE column")
 
     return len(df[df["MOTORCYCLE"] == "YES"])
+
+
+def bicycle_collisions(df: pd.DataFrame) -> int:
+    """
+    Count collisions involving bicycles.
+    """
+    if "BICYCLE" not in df.columns:
+        raise ValueError("Dataset must contain BICYCLE column")
+
+    return len(df[df["BICYCLE"] == "YES"])
