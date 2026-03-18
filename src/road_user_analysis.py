@@ -38,3 +38,31 @@ def automobile_collisions(df: pd.DataFrame) -> int:
         raise ValueError("Dataset must contain AUTOMOBILE column")
 
     return len(df[df["AUTOMOBILE"] == "YES"])
+
+
+def vulnerable_road_user_summary(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Generate summary table for vulnerable road users.
+    """
+
+    pedestrian = pedestrian_collisions(df)
+    bicycle = bicycle_collisions(df)
+    motorcycle = motorcycle_collisions(df)
+    automobile = automobile_collisions(df)
+
+    summary = pd.DataFrame({
+        "Road_User_Type": [
+            "Pedestrian",
+            "Bicycle",
+            "Motorcycle",
+            "Automobile"
+        ],
+        "Collision_Count": [
+            pedestrian,
+            bicycle,
+            motorcycle,
+            automobile
+        ]
+    })
+
+    return summary
