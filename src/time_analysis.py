@@ -53,3 +53,21 @@ def peak_collision_day(df: pd.DataFrame) -> str:
     weekday_counts = collisions_by_weekday(df)
 
     return weekday_counts.idxmax()
+
+def collisions_by_month(df: pd.DataFrame) -> pd.Series:
+    """
+    Calculate number of collisions by month.
+    """
+
+    if "OCC_MONTH" not in df.columns:
+        raise ValueError("Dataset must contain OCC_MONTH column")
+
+    month_order = [
+        "January", "February", "March", "April",
+        "May", "June", "July", "August",
+        "September", "October", "November", "December"
+    ]
+
+    monthly_counts = df.groupby("OCC_MONTH").size()
+
+    return monthly_counts.reindex(month_order)
