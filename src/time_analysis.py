@@ -71,3 +71,12 @@ def collisions_by_month(df: pd.DataFrame) -> pd.Series:
     monthly_counts = df.groupby("OCC_MONTH").size()
 
     return monthly_counts.reindex(month_order)
+
+def peak_collision_month(df: pd.DataFrame) -> str:
+    """
+    Identify weekday with highest number of collisions.
+    """
+
+    month_counts = collisions_by_month(df)
+
+    return month_counts.idxmax()
