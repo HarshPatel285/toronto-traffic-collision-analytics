@@ -66,3 +66,16 @@ def vulnerable_road_user_summary(df: pd.DataFrame) -> pd.DataFrame:
     })
 
     return summary
+
+
+def most_vulnerable_user(df: pd.DataFrame) -> str:
+    """
+    Identify the most vulnerable road user group.
+    """
+
+    summary = vulnerable_road_user_summary(df)
+
+    return summary.loc[
+        summary["Collision_Count"].idxmax(),
+        "Road_User_Type"
+    ]
