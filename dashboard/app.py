@@ -149,3 +149,17 @@ with tab1:
         monthly_data = collisions_by_month(df)
 
         st.line_chart(monthly_data)
+
+# ------------------------------------------------
+# Location Analysis
+# ------------------------------------------------
+
+with tab2:
+
+    st.header("Top Collision Neighbourhoods")
+
+    top_locations = top_neighbourhoods(df)
+
+    st.bar_chart(top_locations)
+
+    st.dataframe(top_locations)
