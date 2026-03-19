@@ -118,3 +118,34 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "Collision Maps",
     "Dataset Viewer"
 ])
+
+# ------------------------------------------------
+# Time Analysis
+# ------------------------------------------------
+
+with tab1:
+
+    st.header("Collision Trends Over Time")
+
+    option = st.selectbox(
+        "Select Time Analysis",
+        ["Hour", "Weekday", "Month"]
+    )
+
+    if option == "Hour":
+
+        hourly_data = collisions_by_hour(df)
+
+        st.bar_chart(hourly_data)
+
+    elif option == "Weekday":
+
+        weekday_data = collisions_by_weekday(df)
+
+        st.bar_chart(weekday_data)
+
+    else:
+
+        monthly_data = collisions_by_month(df)
+
+        st.line_chart(monthly_data)
