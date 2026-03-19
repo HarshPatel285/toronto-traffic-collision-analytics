@@ -163,3 +163,20 @@ with tab2:
     st.bar_chart(top_locations)
 
     st.dataframe(top_locations)
+
+# ------------------------------------------------
+# Road User Safety Analysis
+# ------------------------------------------------
+
+with tab3:
+
+    st.header("Vulnerable Road User Analysis")
+
+    road_user_data = vulnerable_road_user_summary(df)
+
+    st.dataframe(road_user_data)
+
+    st.bar_chart(road_user_data.set_index("Road_User_Type"))
+
+
+
