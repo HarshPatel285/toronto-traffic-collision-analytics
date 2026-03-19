@@ -88,3 +88,33 @@ Interactive analytics tool exploring **Toronto traffic collision patterns**
 using data analysis and visualization.
 """
 )
+
+# ------------------------------------------------
+# KPI Metrics
+# ------------------------------------------------
+
+st.header("Key Collision Metrics")
+
+col1, col2, col3, col4 = st.columns(4)
+
+total_collisions = len(df)
+fatalities = df["FATALITIES"].sum()
+injury_collisions = len(df[df["INJURY_COLLISIONS"] == "YES"])
+pedestrian_collisions = len(df[df["PEDESTRIAN"] == "YES"])
+
+col1.metric("Total Collisions", total_collisions)
+col2.metric("Fatalities", fatalities)
+col3.metric("Injury Collisions", injury_collisions)
+col4.metric("Pedestrian Collisions", pedestrian_collisions)
+
+# ------------------------------------------------
+# Dashboard Tabs
+# ------------------------------------------------
+
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    "Time Analysis",
+    "Location Analysis",
+    "Road User Safety",
+    "Collision Maps",
+    "Dataset Viewer"
+])
