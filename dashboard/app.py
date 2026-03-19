@@ -211,3 +211,12 @@ st.error(f"Neighbourhood with most collisions: {danger_area}")
 
 st.info(f"Most vulnerable road user group: {vulnerable_user}")
 st.info(f"Most common collision severity: {common_severity}")
+
+# ------------------------------------------------
+# Footer
+# ------------------------------------------------
+
+st.markdown("---")
+
+st.write("Toronto Traffic Collision Analytics Tool")
+st.write("Built with Python, Pandas, Streamlit, and Plotly")
