@@ -58,3 +58,33 @@ def load_data():
 
 
 df = load_data()
+
+# ------------------------------------------------
+# Sidebar Filters
+# ------------------------------------------------
+
+st.sidebar.header("Dashboard Filters")
+
+neighbourhoods = sorted(df["NEIGHBOURHOOD_158"].dropna().unique())
+
+selected_neighbourhood = st.sidebar.selectbox(
+    "Select Neighbourhood",
+    ["All"] + neighbourhoods
+)
+
+if selected_neighbourhood != "All":
+    df = df[df["NEIGHBOURHOOD_158"] == selected_neighbourhood]
+
+
+# ------------------------------------------------
+# Dashboard Title
+# ------------------------------------------------
+
+st.title("🚗 Toronto Traffic Collision Analytics Dashboard (Group 7)")
+
+st.write(
+"""
+Interactive analytics tool exploring **Toronto traffic collision patterns**
+using data analysis and visualization.
+"""
+)
