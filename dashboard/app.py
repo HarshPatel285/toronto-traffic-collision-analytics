@@ -178,5 +178,16 @@ with tab3:
 
     st.bar_chart(road_user_data.set_index("Road_User_Type"))
 
+# ------------------------------------------------
+# Dataset Viewer
+# ------------------------------------------------
 
+with tab5:
+
+    st.header("Dataset Preview")
+
+    st.write("Rows:", df.shape[0])
+    st.write("Columns:", df.shape[1])
+
+    st.dataframe(df.head(100))
 
