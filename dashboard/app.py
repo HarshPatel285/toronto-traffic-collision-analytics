@@ -42,3 +42,19 @@ st.set_page_config(
     page_icon="🚗",
     layout="wide"
 )
+
+# ------------------------------------------------
+# Load Data
+# ------------------------------------------------
+
+@st.cache_data
+def load_data():
+
+    df = load_dataset("data/Traffic_Collisions_Open_Data.csv")
+
+    df = clean_dataset(df)
+
+    return df
+
+
+df = load_data()
