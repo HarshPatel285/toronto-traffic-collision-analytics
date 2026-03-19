@@ -191,3 +191,23 @@ with tab5:
 
     st.dataframe(df.head(100))
 
+# ------------------------------------------------
+# Automated Insights
+# ------------------------------------------------
+
+st.markdown("---")
+
+st.header("Automated Insights")
+
+peak_hour = peak_collision_hour(df)
+peak_day = peak_collision_day(df)
+danger_area = most_dangerous_neighbourhood(df)
+vulnerable_user = most_vulnerable_user(df)
+common_severity = most_common_severity(df)
+
+st.success(f"Peak collision hour: {peak_hour}:00")
+st.warning(f"Most dangerous weekday: {peak_day}")
+st.error(f"Neighbourhood with most collisions: {danger_area}")
+
+st.info(f"Most vulnerable road user group: {vulnerable_user}")
+st.info(f"Most common collision severity: {common_severity}")
