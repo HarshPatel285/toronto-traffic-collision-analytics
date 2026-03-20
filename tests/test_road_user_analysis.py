@@ -29,3 +29,11 @@ def test_motorcycle_collisions():
     result = motorcycle_collisions(df)
 
     assert result >= 0
+def test_automobile_collisions():
+
+    df = load_dataset("data/Traffic_Collisions_Open_Data.csv")
+    df = clean_dataset(df)
+
+    result = automobile_collisions(df)
+
+    assert result >= 0
