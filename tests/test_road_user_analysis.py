@@ -11,3 +11,12 @@ def test_pedestrian_collisions():
     result = pedestrian_collisions(df)
 
     assert result >= 0
+
+def test_bicycle_collisions():
+
+    df = load_dataset("data/Traffic_Collisions_Open_Data.csv")
+    df = clean_dataset(df)
+
+    result = bicycle_collisions(df)
+
+    assert result >= 0
