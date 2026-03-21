@@ -43,6 +43,7 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def clean_dataset(df: pd.DataFrame) -> pd.DataFrame:
+
     """
     Clean dataset by applying multiple preprocessing steps.
 
@@ -57,6 +58,7 @@ def clean_dataset(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: cleaned dataset
     """
+
 
     df = standardize_column_names(df)
 
