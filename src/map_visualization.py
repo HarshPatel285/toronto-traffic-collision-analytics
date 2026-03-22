@@ -45,3 +45,26 @@ def collision_point_map(df: pd.DataFrame):
     fig.update_layout(mapbox_style="open-street-map")
 
     return fig
+
+def collision_density_map(df: pd.DataFrame):
+    """
+    Generate collision density heatmap.
+    """
+
+    map_df = prepare_map_data(df)
+
+    # sample data for performance
+    map_df = map_df.sample(min(len(map_df), 10000))
+
+    fig = px.density_mapbox(
+        map_df,
+        lat="LAT_WGS84",
+        lon="LONG_WGS84",
+        radius=8,
+        zoom=10,
+        height=600
+    )
+
+    fig.update_layout(mapbox_style="open-street-map")
+
+    return fig
