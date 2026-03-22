@@ -68,3 +68,18 @@ def collision_density_map(df: pd.DataFrame):
     fig.update_layout(mapbox_style="open-street-map")
 
     return fig
+
+def collision_location_summary(df: pd.DataFrame) -> dict:
+    """
+    Generate geographic summary statistics.
+    """
+
+    map_df = prepare_map_data(df)
+
+    summary = {
+        "total_locations": len(map_df),
+        "average_latitude": map_df["LAT_WGS84"].mean(),
+        "average_longitude": map_df["LONG_WGS84"].mean()
+    }
+
+    return summary
