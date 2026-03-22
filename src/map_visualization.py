@@ -23,3 +23,25 @@ def prepare_map_data(df: pd.DataFrame) -> pd.DataFrame:
     ]
 
     return map_df
+
+def collision_point_map(df: pd.DataFrame):
+    """
+    Generate interactive collision point map.
+    """
+
+    map_df = prepare_map_data(df)
+
+    # sample data to improve performance
+    map_df = map_df.sample(min(len(map_df), 5000))
+
+    fig = px.scatter_mapbox(
+        map_df,
+        lat="LAT_WGS84",
+        lon="LONG_WGS84",
+        zoom=10,
+        height=500
+    )
+
+    fig.update_layout(mapbox_style="open-street-map")
+
+    return fig
