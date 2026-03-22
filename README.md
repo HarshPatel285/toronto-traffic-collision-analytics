@@ -136,8 +136,7 @@ User stories defining system features
 
 ### 🚀 Sprints
 - Sprint 1: Data loading, cleaning, and time analysis  
-- Sprint 2: Location and road user analysis  
-- Sprint 3: Dashboard, visualization, and testing  
+- Sprint 2: Location and road user analysis, Dashboard, visualization, and testing
 
 ### 🛠 Tools Used
 - Taiga (project management)  
