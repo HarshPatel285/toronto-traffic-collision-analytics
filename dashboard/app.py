@@ -1,6 +1,8 @@
 import sys
 import os
 
+from src.map_visualization import collision_point_map, collision_density_map
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import streamlit as st
@@ -178,6 +180,23 @@ with tab3:
 
     st.bar_chart(road_user_data.set_index("Road_User_Type"))
 
+# ------------------------------------------------
+# Collision Map Visualization
+# ------------------------------------------------
+
+with tab4:
+
+    st.header("Collision Location Map")
+
+    fig = collision_point_map(df)
+
+    st.plotly_chart(fig, use_container_width=True)
+
+    st.header("Collision Density Heatmap")
+
+    density_fig = collision_density_map(df)
+
+    st.plotly_chart(density_fig, use_container_width=True)
 # ------------------------------------------------
 # Dataset Viewer
 # ------------------------------------------------
