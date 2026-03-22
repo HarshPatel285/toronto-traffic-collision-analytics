@@ -44,6 +44,22 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
 
 def clean_dataset(df: pd.DataFrame) -> pd.DataFrame:
 
+    """
+    Clean dataset by applying multiple preprocessing steps.
+
+    Steps:
+    1. Standardize column names
+    2. Remove duplicates
+    3. Handle missing values
+    4. Remove invalid neighbourhoods
+    5. Remove invalid coordinates
+    6. Convert data types
+
+    Returns:
+        pd.DataFrame: cleaned dataset
+    """
+
+
     df = standardize_column_names(df)
 
     df = remove_duplicates(df)
@@ -53,3 +69,11 @@ def clean_dataset(df: pd.DataFrame) -> pd.DataFrame:
     df = remove_invalid_coordinates(df)
 
     return df
+
+
+def dataset_summary(df):
+    return {
+        "rows": len(df),
+        "columns": len(df.columns),
+        "missing": int(df.isnull().sum().sum())
+    }
